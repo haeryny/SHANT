@@ -10,9 +10,13 @@ categories: []
 
 ### Members:
 Scrum Master - Tanisha
+
 Product Manager - Sophia
+
 Technical/DevOps Lead - Haeryn
+
 Frontend Developer - Amitha
+
 Topic Expert - Naja
 
 ### Topic:
