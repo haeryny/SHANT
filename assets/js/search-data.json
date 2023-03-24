@@ -2,6 +2,17 @@
   
     
         "post0": {
+            "title": "Sample Notebook",
+            "content": "",
+            "url": "https://haeryny.github.io/SHANT/2023/03/24/Sample-Notebook.html",
+            "relUrl": "/2023/03/24/Sample-Notebook.html",
+            "date": " • Mar 24, 2023"
+        }
+        
+    
+  
+    
+        ,"post1": {
             "title": "SHANT Blog",
             "content": "SHANT . Members: . Scrum Master - Tanisha . Product Manager - Sophia . Technical/DevOps Lead - Haeryn . Frontend Developer - Amitha . Topic Expert - Naja . Topic: . Data Structures including List, Dictionaries, 2D arrays and Iteration (Big Idea 3). Teach these concepts by visualization. . Building Simulation/Interaction using Lists and Iteration | Building or improving on previous lessons and topics | Storing List and Dictionary content in Databases | .",
             "url": "https://haeryny.github.io/SHANT/2023/03/21/SHANT-blog.html",
