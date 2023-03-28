@@ -38,7 +38,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Building a simulation or interaction using lists and iteration in VS Code can be accomplished using a few simple steps:</p>
+<h2 id="Simulations/Interactions">Simulations/Interactions<a class="anchor-link" href="#Simulations/Interactions"> </a></h2><p>Building a simulation or interaction using lists and iteration in VS Code can be accomplished using a few simple steps:</p>
 <ol>
 <li><p>Define your data: First, you need to define the data that your simulation will be working with. This could be a list of numbers, a list of strings, or any other type of data that your simulation will be manipulating.</p>
 </li>
