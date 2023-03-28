@@ -38,6 +38,63 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Building a simulation or interaction using lists and iteration in VS Code can be accomplished using a few simple steps:</p>
+<ol>
+<li><p>Define your data: First, you need to define the data that your simulation will be working with. This could be a list of numbers, a list of strings, or any other type of data that your simulation will be manipulating.</p>
+</li>
+<li><p>Write your simulation code: Once you have defined your data, you can start writing the code for your simulation. This code will typically involve iterating over your list of data, performing some operation on each item in the list, and updating the list accordingly.</p>
+</li>
+<li><p>Test your simulation: After you have written your simulation code, it is important to test it to make sure it is working as expected. You can do this by running your code and checking the output to see if it matches what you expect.</p>
+</li>
+<li><p>Refine your simulation: Once you have tested your simulation, you may need to refine it based on the results. This could involve tweaking the code to make it more efficient, adding new features, or fixing any bugs that you have discovered.</p>
+</li>
+</ol>
+<p>Here's a simple example of a simulation in Python that uses lists and iteration to calculate the average of a list of numbers:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Initialize the sum and count variables</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Iterate over the list of numbers, adding each number to the sum</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">number</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Calculate the average of the list of numbers</span>
+<span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="n">count</span>
+
+<span class="c1"># Print the average</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The average of the list is:&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This code defines a list of numbers, iterates over the list to calculate the sum and count of the numbers, and then calculates the average by dividing the sum by the count. Finally, it prints the average to the console.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h2><p>For list operations, write expressions that use list indexing and list procedures. For algorithms involving elements of a list, write iteration statements to traverse a list.</p>
 <ul>
 <li>List procedures are implemented in accordance with the syntax rules of the programming language. </li>
@@ -74,6 +131,23 @@ layout: notebook
 </ul>
 <p>The second type of loop is a REPEAT UNTIL (condition) loop, where the loop will continue to run until a condition is met.</p>
 <p>Conceptually, a while loop is very similar to an if conditional, except that a while is continually executed until it's no longer true and an if is only executed once.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Libaries">Libaries<a class="anchor-link" href="#Libaries"> </a></h2><ul>
+<li>A software library contains procedures that may be used in creating new programs. </li>
+<li>Existing code segments can come from internal or external sources, such as libaries or previously written code. </li>
+<li>The use of libaries simplifies the task of creating complex programs.</li>
+</ul>
+<h3 id="APIs">APIs<a class="anchor-link" href="#APIs"> </a></h3><p>Application program interfaces (APIs) are specifications for how the procedures in a libary behave and can be used as documentation for an API/libary is necessary in understanding the behaviors provided by the API and how to use them.</p>
+<p>A file that contains procedures that can be used in a program is considered a libary.</p>
+<ul>
+<li>API provides specifications for how procedures in a library behave and can be used. </li>
+<li>Many companies use APIs for programmers to interact with their products. </li>
+</ul>
 
 </div>
 </div>
