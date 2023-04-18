@@ -1,6 +1,6 @@
 ---
 keywords: fastai
-title: Building Simulation/Interaction using Lists and Iteration
+title: Building Simulation/Interaction using Lists and Iteration - Student Copy
 toc: true
 badges: false
 comments: true
@@ -67,7 +67,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Simulations/Interactions">Simulations/Interactions<a class="anchor-link" href="#Simulations/Interactions"> </a></h2><p>Building a simulation or interaction using lists and iteration in VS Code can be accomplished using a few simple steps:</p>
+<h2 id="Simulations/Interactions">Simulations/Interactions<a class="anchor-link" href="#Simulations/Interactions"> </a></h2><p>Building a simulation o#r interaction using lists and iteration in VS Code can be accomplished using a few simple steps:</p>
 <ol>
 <li><p><strong>Define your data</strong>: First, you need to define the data that your simulation will be working with. This could be a list of numbers, a list of strings, or any other type of data that your simulation will be manipulating.</p>
 </li>
@@ -78,7 +78,16 @@ layout: notebook
 <li><p><strong>Refine your simulation:</strong> Once you have tested your simulation, you may need to refine it based on the results. This could involve tweaking the code to make it more efficient, adding new features, or fixing any bugs that you have discovered.</p>
 </li>
 </ol>
-<p>Here's a simple example of a simulation in Python that uses lists and iteration to calculate the average of a list of numbers:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Why-use-simulations?">Why use simulations?<a class="anchor-link" href="#Why-use-simulations?"> </a></h4><ul>
+<li>Simulations can be useful because they can emulate real world situations without needing excessive resources (ex: money), time, or equipment. For example, a simulation of the effectiveness of a new seatbelt or airbag can be performed by simulating car crashes. This would be better than doing it in real life because you wouldn't want to place people in cars and then crash them for obvious reasons.</li>
+<li>However, simulatins do assume things about the real world and can have biases. They can be oversimplified because the real world often has more complications and factors that can affect something. In the case of our car crash simulation, other things can have a big impact, such as the weather and experience of the driver. However, these things can sometimes be held constant in the simulations.</li>
+</ul>
 
 </div>
 </div>
@@ -90,6 +99,13 @@ layout: notebook
 <li>Explain an example of something you could simulate.</li>
 <li>Why are simulations useful and important?</li>
 </ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's a simple example of a simulation in Python that uses lists and iteration to calculate the average of a list of numbers:</p>
 
 </div>
 </div>
@@ -149,9 +165,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h2><p>For list operations, write expressions that use list indexing and list procedures. For algorithms involving elements of a list, write iteration statements to traverse a list.</p>
-<ul>
-<li>List procedures are implemented in accordance with the syntax rules of the programming language. </li>
+<h2 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h2><ul>
 <li>Iteration statements can be used to traverse a list</li>
 <li>Knowldege of exisiting algorithms that use iteration can help in constructing new algorithms. Some are:<ul>
 <li>Determining a minimum or maximum value in a list</li>
@@ -253,6 +267,130 @@ layout: notebook
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">folklore_album</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Folklore&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;artist&quot;</span><span class="p">:</span> <span class="s2">&quot;Taylor Swift&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span><span class="p">,</span>
+    <span class="s2">&quot;genre&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alternative/Indie&quot;</span><span class="p">,</span> <span class="s2">&quot;Pop&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;tracks&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;the 1&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cardigan&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;the last great american dynasty&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;exile (ft. Bon Iver)&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;my tears ricochet&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mirrorball&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;seven&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;august&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;this is me trying&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;illicit affairs&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+        <span class="mi">11</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;invisible string&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+        <span class="mi">12</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mad woman&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">13</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;epiphany&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+        <span class="mi">14</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;betty&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+        <span class="mi">15</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;peace&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="mi">16</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hoax&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="mi">17</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;the lakes&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Printing the dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">folklore_album</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;title&#39;: &#39;Folklore&#39;, &#39;artist&#39;: &#39;Taylor Swift&#39;, &#39;year&#39;: 2020, &#39;genre&#39;: [&#39;Alternative/Indie&#39;, &#39;Pop&#39;], &#39;tracks&#39;: {1: [&#39;the 1&#39;, 7], 2: [&#39;cardigan&#39;, 19], 3: [&#39;the last great american dynasty&#39;, 7], 4: [&#39;exile (ft. Bon Iver)&#39;, 10], 5: [&#39;my tears ricochet&#39;, 7], 6: [&#39;mirrorball&#39;, 6], 7: [&#39;seven&#39;, 5], 8: [&#39;august&#39;, 7], 9: [&#39;this is me trying&#39;, 7], 10: [&#39;illicit affairs&#39;, 8], 11: [&#39;invisible string&#39;, 6], 12: [&#39;mad woman&#39;, 7], 13: [&#39;epiphany&#39;, 6], 14: [&#39;betty&#39;, 8], 15: [&#39;peace&#39;, 9], 16: [&#39;hoax&#39;, 7], 17: [&#39;the lakes&#39;, 6]}}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">folklore_album</span><span class="p">[</span><span class="s2">&quot;tracks&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;track #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">folklore_album</span><span class="p">[</span><span class="s2">&quot;tracks&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    my rating: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">folklore_album</span><span class="p">[</span><span class="s2">&quot;tracks&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;/10&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>track #1: the 1
+    my rating: 7/10
+track #2: cardigan
+    my rating: 19/10
+track #3: the last great american dynasty
+    my rating: 7/10
+track #4: exile (ft. Bon Iver)
+    my rating: 10/10
+track #5: my tears ricochet
+    my rating: 7/10
+track #6: mirrorball
+    my rating: 6/10
+track #7: seven
+    my rating: 5/10
+track #8: august
+    my rating: 7/10
+track #9: this is me trying
+    my rating: 7/10
+track #10: illicit affairs
+    my rating: 8/10
+track #11: invisible string
+    my rating: 6/10
+track #12: mad woman
+    my rating: 7/10
+track #13: epiphany
+    my rating: 6/10
+track #14: betty
+    my rating: 8/10
+track #15: peace
+    my rating: 9/10
+track #16: hoax
+    my rating: 7/10
+track #17: the lakes
+    my rating: 6/10
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Code-Examples">Code Examples<a class="anchor-link" href="#Code-Examples"> </a></h2>
@@ -292,7 +430,6 @@ layout: notebook
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>List before reverse :  [1, 2, 3, 4, 5]
-List after reverse :  [5, 4, 3, 2, 1]
 </pre>
 </div>
 </div>
@@ -346,7 +483,6 @@ List after reverse :  [5, 4, 3, 2, 1]
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>array before sort [9, 8, 4, 3, 5, 2, 6, 7, 1, 0]
-array after sort [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre>
 </div>
 </div>
@@ -391,6 +527,21 @@ array after sort [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>These are the songs in Taylor Swift&#39;s folklore album that have less than 7 characters in their title
+[&#39;exile&#39;, &#39;august&#39;, &#39;betty&#39;, &#39;peace&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     {% endraw %}
 
@@ -416,6 +567,21 @@ array after sort [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>These are the songs in Taylor Swift&#39;s folklore album that I give a rating greater than 7
+{&#39;exile&#39;: 8, &#39;illicit affairs&#39;: 8, &#39;peace&#39;: 10, &#39;cardigan&#39;: 10}
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
