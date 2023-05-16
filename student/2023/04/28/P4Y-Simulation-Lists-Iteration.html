@@ -615,42 +615,17 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>track #1: the 1
-    my rating: 7/10
-track #2: cardigan
-    my rating: 19/10
-track #3: the last great american dynasty
-    my rating: 7/10
-track #4: exile (ft. Bon Iver)
-    my rating: 10/10
-track #5: my tears ricochet
-    my rating: 7/10
-track #6: mirrorball
-    my rating: 6/10
-track #7: seven
-    my rating: 5/10
-track #8: august
-    my rating: 7/10
-track #9: this is me trying
-    my rating: 7/10
-track #10: illicit affairs
-    my rating: 8/10
-track #11: invisible string
-    my rating: 6/10
-track #12: mad woman
-    my rating: 7/10
-track #13: epiphany
-    my rating: 6/10
-track #14: betty
-    my rating: 8/10
-track #15: peace
-    my rating: 9/10
-track #16: hoax
-    my rating: 7/10
-track #17: the lakes
-    my rating: 6/10
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/Users/amitha/vscode/SHANT/_notebooks/2023-04-28-P4Y-Simulation-Lists-Iteration.ipynb Cell 18</span> in <span class="ansi-cyan-fg">&lt;cell line: 2&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell:/Users/amitha/vscode/SHANT/_notebooks/2023-04-28-P4Y-Simulation-Lists-Iteration.ipynb#X23sZmlsZQ%3D%3D?line=0'&gt;1&lt;/a&gt;</span> # Here I print the tracks list in a readable format with MY rating :)
+<span class="ansi-green-fg">----&gt; &lt;a href='vscode-notebook-cell:/Users/amitha/vscode/SHANT/_notebooks/2023-04-28-P4Y-Simulation-Lists-Iteration.ipynb#X23sZmlsZQ%3D%3D?line=1'&gt;2&lt;/a&gt;</span> for i in folklore_album["tracks"]:
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell:/Users/amitha/vscode/SHANT/_notebooks/2023-04-28-P4Y-Simulation-Lists-Iteration.ipynb#X23sZmlsZQ%3D%3D?line=2'&gt;3&lt;/a&gt;</span>     print("track #" + str(i) + ": " + folklore_album["tracks"][i][0])
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell:/Users/amitha/vscode/SHANT/_notebooks/2023-04-28-P4Y-Simulation-Lists-Iteration.ipynb#X23sZmlsZQ%3D%3D?line=3'&gt;4&lt;/a&gt;</span>     print("    my rating: " + str(folklore_album["tracks"][i][1]) + "/10")
+
+<span class="ansi-red-fg">NameError</span>: name 'folklore_album' is not defined</pre>
 </div>
 </div>
 
