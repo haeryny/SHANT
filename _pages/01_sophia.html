@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Spectral' rel='stylesheet'>
+    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div id="input_name">
+            <input class="inputs" type="text" id="username" placeholder="Your Name"/>
+            <input class="inputs button" type="button" onClick="setName()" Value="Submit"/>
+        </div>
+        <h1 id="profile-name">My Profile</h1>
+    </header>
+
+    <div><div id="musicContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;._.<br>
+        &nbsp;&nbsp;_____&nbsp;&nbsp;__&nbsp;__&nbsp;&nbsp;_____|__|&nbsp;____&nbsp;&nbsp;&nbsp;|__|&nbsp;______&nbsp;&nbsp;&nbsp;&nbsp;___________&nbsp;&nbsp;&nbsp;____&nbsp;_____&nbsp;_/&nbsp;&nbsp;|_|&nbsp;|<br>
+        &nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;|&nbsp;&nbsp;\/&nbsp;&nbsp;___/&nbsp;&nbsp;|/&nbsp;___\&nbsp;&nbsp;|&nbsp;&nbsp;|/&nbsp;&nbsp;___/&nbsp;&nbsp;&nbsp;/&nbsp;___\_&nbsp;&nbsp;__&nbsp;\_/&nbsp;__&nbsp;\\__&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;__\&nbsp;|<br>
+        |&nbsp;&nbsp;Y&nbsp;Y&nbsp;&nbsp;\&nbsp;&nbsp;|&nbsp;&nbsp;/\___&nbsp;\|&nbsp;&nbsp;\&nbsp;&nbsp;\___&nbsp;&nbsp;|&nbsp;&nbsp;|\___&nbsp;\&nbsp;&nbsp;&nbsp;/&nbsp;/_/&nbsp;&nbsp;>&nbsp;&nbsp;|&nbsp;\/\&nbsp;&nbsp;___/&nbsp;/&nbsp;__&nbsp;\|&nbsp;&nbsp;|&nbsp;&nbsp;\|<br>
+        |__|_|&nbsp;&nbsp;/____//____&nbsp;&nbsp;>__|\___&nbsp;&nbsp;>&nbsp;|__/____&nbsp;&nbsp;>&nbsp;&nbsp;\___&nbsp;&nbsp;/|__|&nbsp;&nbsp;&nbsp;&nbsp;\___&nbsp;&nbsp;>____&nbsp;&nbsp;/__|&nbsp;&nbsp;__<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;/_____/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\/</div></div>
+
+    <h2>My Favorite Songs</h2>
+    <div class="inputs" id="input_songs">
+        <p>Add a favorite song here!</p>
+        <input class="inputs" type="text" id="song_name" placeholder="Favorite Song Title"/>
+        <input class="inputs" type="text" id="artist_name" placeholder="Artist Name"/>
+        <input class="inputs" type="text" id="rank" placeholder="Rank"/>
+        <input class="inputs button" type="button" onClick="searchFavorite()" Value="Submit"/>
+    </div>
+    <br><br>
+
+    <table id="favoriteSongs">
+        <tr>
+            <th><label for="Rank">Rank<br>Sort <button onclick="sortTableByRankAscending()">⬆️</button><button onclick="sortTableByRankDescending()">⬇️</button></label></th>
+            <th><label for="Song">Song<br>Sort <button onclick="sortTableBySongAscending()">⬆️</button><button onclick="sortTableBySongDescending()">⬇️</button></label></th>
+            <th><label for="Artist">Artist<br>Sort <button onclick="sortTableByArtistAscending()">⬆️</button><button onclick="sortTableByArtistDescending()">⬇️</button></label></th>
+            <th><label for="Lyrics">Lyrics</label></th>
+            <th><label for="Release-Date">Release Date<br>Sort <button onclick="sortTableByDateAscending()">⬆️</button><button onclick="sortTableByDateDescending()">⬇️</button></label></th>
+            <th><label for="Album-Cover">Album Cover</label></th>
+            <th><label for="Artist-Image">Artist Image</label></th>
+            <th><label for="Delete-Song">Delete</label></th>
+        </tr>
+    </table>
+    <br><br>
+    <div id="myContainer"><div id="myAnimation">___|\_______|________|_______________________O__________@____________<br>
+        ___|/_______|________|_|___|__________|__@__|_____@__|_|____O._______||<br>
+        __/|____4___|__O_____|_|___|__O.______|_|@__|____|___|_|___|O.______o||<br>
+        _(_/^\__4__@|_|_____@__|___|_|________|_|@__|____|___|_|___|________o||<br>
+        __\|/'_____@__|________|__@|_|________|_|________|___|_____|_________||<br>&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</div></div>
+
+    <h2>Recommended Songs</h2>
+    <table id="recommendedSongs">
+        <tr>
+            <th><label for="Based-On">Based on your favorite of...</label></th>
+            <th><label for="Artist">We think you'd like...</label></th>
+        </tr>
+    </table>
+    <script>
+
+        // PROFILE
+        function setName() {
+            var name = document.getElementById("username").value;
+            var element = document.getElementById("input_name");
+            document.getElementById("input_name").style.display = "none";
+            document.getElementById("profile-name").innerHTML = name + "'s Profile";
+        }
+
+        function deleteRecRow(song, artist) {
+            var title = song + " by " + artist;
+            var table = document.getElementById("recommendedSongs");
+            for (var i = 0; i < title.length; i++) {
+                if (title[i] == "<") {
+                    title = title.substring(0, i);
+                }
+            }
+            console.log("Deleting... " + title);
+            var temp;
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                temp = row.cells[0].innerHTML;
+                if (temp == title) {
+                    document.getElementById("recommendedSongs").deleteRow(i);
+                    break;
+                }
+            }
+        }
+        // delete a song
+        function deleteSong(td) {
+            var tr = td.parentNode; // find the row to be removed
+            // remove the  row
+            var song = tr.getElementsByTagName("td")[1].innerHTML;
+            var artist = tr.getElementsByTagName("td")[2].innerHTML;
+            deleteRecRow(song, artist);
+            tr.parentNode.removeChild(tr);
+        }
+
+        function increaseRank(td) {
+            var tr = td.parentNode;
+            var currentRank = tr.getElementsByTagName("td")[0].innerHTML;
+            console.log("currentRank: " + String(parseInt(currentRank)));
+            tr.getElementsByTagName("td")[0].innerHTML = parseInt(currentRank) + 1 + ' <input type="button" value="↑" onclick="increaseRank(event.target.parentNode)"> <input type="button" value="↓" onclick="decreaseRank(event.target.parentNode)">';
+        }
+
+        function decreaseRank(td) {
+            var tr = td.parentNode;
+            var currentRank = tr.getElementsByTagName("td")[0].innerHTML;
+            console.log("currentRank: " + String(parseInt(currentRank)));
+            tr.getElementsByTagName("td")[0].innerHTML = parseInt(currentRank) - 1 + ' <input type="button" value="↑" onclick="increaseRank(event.target.parentNode)"> <input type="button" value="↓" onclick="decreaseRank(event.target.parentNode)">';
+        }
+
+
+        // rec songs info
+        var rec_url = 'https://genius-song-lyrics1.p.rapidapi.com/song/recommendations/?id=5250969';
+
+
+        // getting the favorite songs
+        var fav_url = 'https://genius-song-lyrics1.p.rapidapi.com/search/?q=';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '222daebd02msh197e0db183672fap17cc9djsn8a1f2f813e5b',
+                'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+            }
+        };
+
+        function searchFavorite() {
+            var searchSong = document.getElementById("song_name").value;
+            var searchArtist = document.getElementById("artist_name").value;
+            var rankSong = parseInt(document.getElementById("rank").value);
+            console.log(searchSong + " " + searchArtist);
+            document.getElementById("song_name").value = "";
+            document.getElementById("artist_name").value = "";
+            document.getElementById("rank").value = "";
+            searchSong = searchSong.replace(" ", "%20");
+            searchArist = searchArtist.replace(" ", "%20");
+            fav_url ='https://genius-song-lyrics1.p.rapidapi.com/search/?q=' + searchSong + "%20" + searchArtist + "&per_page=10&page=1";
+            fetch(fav_url, options).then(response => {
+                response.json().then(data => {
+                    console.log(data);
+                    console.log(data["hits"].length);
+                    if (data["hits"].length == 0) {
+                        alert("Invalid song name! Try again!");
+                    }
+                    var music = data;
+                    var track = data["hits"][0]["result"]["title"];
+                    var artist = data["hits"][0]["result"]["artist_names"];
+                    var table = document.getElementById("favoriteSongs");
+                    var songID = data["hits"][0]["result"]["id"]
+
+                    var row = table.insertRow(-1);
+                    var fav_cell0 = row.insertCell(0);
+                    var fav_cell1 = row.insertCell(1);
+                    var fav_cell2 = row.insertCell(2);
+                    var fav_cell3 = row.insertCell(3);
+                    var fav_cell4 = row.insertCell(4);
+                    var fav_cell5 = row.insertCell(5);
+                    var fav_cell6 = row.insertCell(6);
+                    var fav_cell7 = row.insertCell(7);
+                    
+                    fav_cell0.innerHTML = rankSong + ' <input type="button" value="↑" onclick="increaseRank(event.target.parentNode)"> <input type="button" value="↓" onclick="decreaseRank(event.target.parentNode)">';
+                    fav_cell1.innerHTML = track;
+                    fav_cell2.innerHTML = artist + '<br>' + '<a href="' + data["hits"][0]["result"]["primary_artist"]["url"] + '">Artist Profile</a>';
+                    fav_cell3.innerHTML = '<a href="' + data["hits"][0]["result"]["url"] + '">Lyrics Link</a>';
+                    fav_cell4.innerHTML = data["hits"][0]["result"]["release_date_for_display"];
+                    fav_cell5.innerHTML = '<img src="' + data["hits"][0]["result"]["header_image_thumbnail_url"] + '" style="width:200px">';
+                    fav_cell6.innerHTML = '<img src="' + data["hits"][0]["result"]["primary_artist"]["image_url"] + '" style="width:200px">';
+                    fav_cell7.innerHTML = '<input type="button" value="🗑️" onclick="deleteSong(event.target.parentNode)">';
+
+                    rec_url = 'https://genius-song-lyrics1.p.rapidapi.com/song/recommendations/?id=' + String(songID)
+                    fetch(rec_url, options).then(response_2 => {
+                        response_2.json().then(data_2 => {
+                            console.log(data_2);
+                            var table_2 = document.getElementById("recommendedSongs");
+                            var row_2 = table_2.insertRow(-1);
+                            var rec_cell0 = row_2.insertCell(0);
+                            var rec_cell1 = row_2.insertCell(1);
+                            var rec_song_1 = data_2["song_recommendations"]["recommendations"][0]["recommended_song"]["full_title"];
+                            var rec_song_2 = data_2["song_recommendations"]["recommendations"][1]["recommended_song"]["full_title"];
+                            var rec_song_3 = data_2["song_recommendations"]["recommendations"][2]["recommended_song"]["full_title"];
+
+                            rec_cell0.innerHTML = track + ' by ' + artist;
+                            rec_cell1.innerHTML = '<ol><li>' + rec_song_1 + '</li><li>' + rec_song_2 + '</li><li>' + rec_song_3 + '</li></ol>'
+                        })
+                    })
+
+
+                })
+            })
+        }
+
+
+        // sorting the table by rank ascending
+        function sortTableByRankAscending() {
+            console.log("sorting by rank ascending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[0];
+                    y = rows[i + 1].getElementsByTagName("td")[0];
+                    console.log("x: " + x.innerHTML);
+                    console.log("y: " + y.innerHTML);
+                    if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+        // sorting the table by rank descending
+        function sortTableByRankDescending() {
+            console.log("sorting by rank descending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[0];
+                    y = rows[i + 1].getElementsByTagName("td")[0];
+                    console.log("x: " + x.innerHTML);
+                    console.log("y: " + y.innerHTML);
+                    if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+        // sorting the table by song ascending
+        function sortTableBySongAscending() {
+            console.log("sorting by song ascending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[1];
+                    y = rows[i + 1].getElementsByTagName("td")[1];
+                    console.log("x: " + x);
+                    console.log("y: " + y);
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+        // sorting the table by song descending
+        function sortTableBySongDescending() {
+            console.log("sorting by song descending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[1];
+                    y = rows[i + 1].getElementsByTagName("td")[1];
+                    console.log("x: " + x);
+                    console.log("y: " + y);
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+
+        // sorting the table by artist ascending
+        function sortTableByArtistAscending() {
+            console.log("sorting by artist ascending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[2];
+                    y = rows[i + 1].getElementsByTagName("td")[2];
+                    console.log("x: " + x);
+                    console.log("y: " + y);
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+
+        // sorting the table by artist descending
+        function sortTableByArtistDescending() {
+            console.log("sorting by artist descending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[2];
+                    y = rows[i + 1].getElementsByTagName("td")[2];
+                    console.log("x: " + x);
+                    console.log("y: " + y);
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+        function getDate(date) {
+            var newDate = String(date);
+            date = newDate.replace(",", "");
+            var arr = date.split(" ");
+
+            var formattedDate = String(arr[2]);
+
+            var month = arr[0];
+            if (month == "January") {
+                formattedDate = formattedDate + "01";
+            }
+            else if (month == "February") {
+                formattedDate = formattedDate + "02";
+            }
+            else if (month == "March") {
+                formattedDate = formattedDate + "03";
+            }
+            else if (month == "April") {
+                formattedDate = formattedDate + "04";
+            }
+            else if (month == "May") {
+                formattedDate = formattedDate + "05";
+            }
+            else if (month == "June") {
+                formattedDate = formattedDate + "06";
+            }
+            else if (month == "July") {
+                formattedDate = formattedDate + "07";
+            }
+            else if (month == "August") {
+                formattedDate = formattedDate + "08";
+            }
+            else if (month == "September") {
+                formattedDate = formattedDate + "09";
+            }
+            else if (month == "October") {
+                formattedDate = formattedDate + "10";
+            }
+            else if (month == "November") {
+                formattedDate = formattedDate + "11";
+            }
+            else {
+                formattedDate = formattedDate + "12";
+            }
+
+            var day = arr[1];
+            if (day.length < 2) {
+                day = "0" + String(day);
+            }
+            formattedDate = formattedDate + String(day);
+            return formattedDate;
+
+
+        }
+
+
+        // sorting the table by date ascending
+        function sortTableByDateAscending() {
+            console.log("sorting by date ascending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[4];
+                    y = rows[i + 1].getElementsByTagName("td")[4];
+                    x = parseInt(getDate(x.innerHTML));
+                    y = parseInt(getDate(y.innerHTML));
+                    console.log("x: " + x);
+                    console.log("y: " + y);
+                    if (x > y) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+        // sorting the table by date descending
+        function sortTableByDateDescending() {
+            console.log("sorting by date descending...");
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("favoriteSongs");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[4];
+                    y = rows[i + 1].getElementsByTagName("td")[4];
+                    x = parseInt(getDate(x.innerHTML));
+                    y = parseInt(getDate(y.innerHTML));
+                    console.log("x: " + x);
+                    console.log("y: " + y);
+                    if (x < y) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+                    switching = true;
+                }
+            }
+        }
+
+        // animation
+        var id = null;
+        var goRight = true;
+        function animate() {
+            console.log("animation :D");
+            var elem = document.getElementById("myAnimation");
+            var pos = 0;
+            clearInterval(id);
+            id = setInterval(frame, 1);
+            function frame() {
+                if (goRight) {
+                    if (pos == 800) {
+                        goRight = false;
+                    }
+                    else {
+                        pos++;
+                        elem.style.left = pos + 'px';
+                    }
+                }
+                else {
+                    if (pos == 0) {
+                        goRight = true;
+                    }
+                    else {
+                        pos--;
+                        elem.style.left = pos + 'px';
+                    }
+                }
+                
+            }
+        }
+
+        setInterval(function() {
+            $("#musicContainer").toggleClass("red");
+            $("#musicContainer").toggleClass("blue");
+        }, 1000)
+        animate();
+
+    </script>
+</body>
+</html>
