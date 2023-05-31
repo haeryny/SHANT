@@ -3,7 +3,7 @@ title: SHANT Music Website
 layout: single
 tagline: "Learn More About Music!"
 header:
-  overlay_image: /images/music.jpg
+  overlay_image: https://github.com/haeryny/SHANT/assets/111464920/374f2dd1-9926-4b23-b8ff-dfb1a3e427b9
 ---
 
 <html>
