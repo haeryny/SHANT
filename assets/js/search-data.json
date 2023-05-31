@@ -93,9 +93,20 @@
   
 
   
+      ,"page4": {
+          "title": "Artist Search",
+          "content": "&lt;!DOCTYPE html&gt; . Artist Search . Search Artist Name Likes Dislikes . .",
+          "url": "https://haeryny.github.io/SHANT/artist-search",
+          "relUrl": "/artist-search",
+          "date": ""
+      }
+      
+  
 
   
-      ,"page5": {
+
+  
+      ,"page6": {
           "title": "",
           "content": "Blogs .",
           "url": "https://haeryny.github.io/SHANT/",
@@ -124,7 +135,7 @@
   
 
   
-      ,"page12": {
+      ,"page13": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://haeryny.github.io/SHANT/robots.txt",
