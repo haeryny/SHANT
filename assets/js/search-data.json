@@ -104,9 +104,20 @@
   
 
   
+      ,"page5": {
+          "title": "Seach & Sort",
+          "content": "⋆⁺₊⋆Search &amp; Sort Tracks!⋆⁺₊⋆ . . Enter Track: Submit Sort Tracks .",
+          "url": "https://haeryny.github.io/SHANT/Sort%20Songs/",
+          "relUrl": "/Sort Songs/",
+          "date": ""
+      }
+      
+  
 
   
-      ,"page6": {
+
+  
+      ,"page7": {
           "title": "SHANT Music Website",
           "content": ". Login Here &times; Username Password Email Login Remember me Cancel Forgot password? .",
           "url": "https://haeryny.github.io/SHANT/_pages/home.html",
@@ -117,7 +128,7 @@
   
 
   
-      ,"page7": {
+      ,"page8": {
           "title": "",
           "content": "Blogs .",
           "url": "https://haeryny.github.io/SHANT/",
@@ -146,7 +157,7 @@
   
 
   
-      ,"page14": {
+      ,"page15": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://haeryny.github.io/SHANT/robots.txt",
