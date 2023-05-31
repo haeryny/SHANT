@@ -107,6 +107,17 @@
 
   
       ,"page6": {
+          "title": "SHANT Music Website",
+          "content": ". Login Here &times; Username Password Email Login Remember me Cancel Forgot password? .",
+          "url": "https://haeryny.github.io/SHANT/_pages/home.html",
+          "relUrl": "/_pages/home.html",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page7": {
           "title": "",
           "content": "Blogs .",
           "url": "https://haeryny.github.io/SHANT/",
@@ -135,7 +146,7 @@
   
 
   
-      ,"page13": {
+      ,"page14": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://haeryny.github.io/SHANT/robots.txt",
