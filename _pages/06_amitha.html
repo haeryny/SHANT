@@ -1,0 +1,329 @@
+---
+title: Seach & Sort
+layout: page
+permalink: /Sort Songs/
+---
+
+<html>
+<head>
+  <section>
+    <div>
+      <h1 href="" data-split data-split-type="hover">⋆⁺₊⋆Search & Sort Tracks!⋆⁺₊⋆</h1>
+    </div>
+  </section>
+<style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .track-box {
+        text-align: center;
+        color: beige;
+    }
+
+    .track-pic {
+        width: 100%;
+        height: 100;
+    }
+    .container {
+        background-color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        align-items: center;
+        position: relative;
+    }
+    .btn {
+        align-items: center;
+        background-color: #fff;
+        border-radius: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0;
+        padding: 7px;
+        text-align: center;
+        border: 0;
+        box-shadow: transparent 0 0 0 3px,rgb(255, 0, 170) 0 5px 10px;
+        box-sizing: border-box;
+       
+      }
+      .button {
+        align-items: center;
+        background-color: #fff;
+        border-radius: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        position: relative;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0;
+        padding: 7px;
+        text-align: center;
+        border: none;
+        box-shadow: transparent 0 0 0 3px,rgb(255, 0, 170) 0 5px 10px;
+        box-sizing: border-box;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+
+      }
+      .button:after {
+        content: "";
+        background: #ffffff;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px!important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+        }
+      .button:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+        }
+ /* BASIC STYLES
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    * 
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 0 30px;
+      font-size: xx-large;
+    }
+    /* MAIN STYLES
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    [data-split],
+    [data-split] span {
+      display: inline-block;
+    }
+    
+    [data-split] .inner {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    [data-split] .back {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    
+    [data-split] .char {
+      transition: all 0.4s cubic-bezier(0.2, 0.63, 0.4, 1.02);
+      transition-delay: calc(0.015s * var(--index));
+    }
+    
+    [data-split] .back .char {
+      opacity: 0;
+      transform: translateY(101%) skewX(55deg);
+    }
+    
+    [data-split-type="hover"] .char {
+      transition-duration: 0.25s;
+    }
+    
+    [data-split-type="scroll"].is-animated .back .char,
+    [data-split-type="hover"]:hover .back .char {
+      opacity: 1;
+      transform: none;
+    }
+    
+    [data-split-type="scroll"].is-animated .front .char,
+    [data-split-type="hover"]:hover .front .char {
+      opacity: 0;
+      transform: translateY(-101%) skewX(-55deg);
+    }
+</style>
+</head>
+
+<body>
+
+ 
+<form align="center" id="searchBar">
+    <label for="trackName">Enter Track:</label>
+    <input type="text" id="trackName" name="trackName" required>
+    <button class="button" type="submit">Submit</button>
+    <button class="button" align="center" id="sortButton">Sort Tracks</button>
+</form>
+
+
+<div id="tracksContainer" class="grid"></div>
+  
+
+<script>
+    const CLIENT_ID = '4034fb5829ee4eb2b2a2cfaa29336f4e';
+    const CLIENT_SECRET = 'c7768173586d4b13b957dfa84340cd1b';
+
+    const searchBar = document.getElementById('searchBar');
+    const tracksContainer = document.getElementById('tracksContainer');
+    const sortButton = document.getElementById('sortButton');
+
+    searchBar.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const trackName = document.getElementById('trackName').value;
+      getTrack(trackName);
+    });
+
+    sortButton.addEventListener('click', function() {
+      sortTracks();
+    });
+
+    let tracks = [];
+    function getTrack(trackName) {
+        // const url = 'https://spotify23.p.rapidapi.com/search/?q=' + trackName + '&type=multi&offset=0&limit=10&numberOfTopResults=5';
+        // const options = {
+        // method: 'GET',
+        // headers: {
+        //     'X-RapidAPI-Key': '8ca68e698emsh077b34dcb5cedc7p176bfdjsn4a11c2cb1bef',
+        //     'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+        // }
+        // };
+        const parameters = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+        };
+        fetch('https://accounts.spotify.com/api/token', parameters)
+        .then(result => result.json())
+        .then(data => {
+          const accessToken = data.access_token;
+          const albumsEndpoint = `https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`;
+
+          fetch(albumsEndpoint, {
+            headers: {
+              'Authorization': 'Bearer ' + accessToken
+            }
+          })
+            .then(response => response.json())
+            .then(data => { 
+            console.log(data)
+              tracks = data.tracks.items;
+              displayTracks(tracks)
+            })
+            .catch(error => console.error(error));
+        })
+        .catch(error => console.error(error));
+    }
+    function displayTracks(tracks) {
+        tracksContainer.innerHTML = '';
+
+        if (tracks.length === 0) {
+            tracks.Container.textContent = 'Track not found';
+            return;
+        }
+
+        tracks.forEach(track=> {
+            const trackBox = document.createElement('div');
+            trackBox.classList.add('track-box');
+
+            const trackPic = document.createElement('pic');
+            trackPic.classList.add('track-pic');
+            
+            trackPic.src = track.album.images[0].url;
+            trackPic.alt = track.name;
+
+            const trackName = document.createElement('p');
+            trackName.textContent = track.name;
+
+            trackBox.appendChild(trackPic);
+            trackBox.appendChild(trackName);
+
+            tracksContainer.appendChild(trackBox);
+        });
+    }
+
+    function sortTracks() {
+        tracks.sort((a, b) => a.name.localeCompare(b.name));
+        displayTracks(tracks);
+    }
+    splitCharacters();
+  animateOnScroll();
+
+  function splitCharacters() {
+    const targets = document.querySelectorAll("[data-split]");
+
+    for (const target of targets) {
+      let string = '<span class="inner"><span class="front">';
+      let counter = 0;
+
+      const targetContent = target.textContent;
+      const words = targetContent.trim().split(" ");
+
+      words.forEach(function (word, wordIndex, wordArray) {
+        const chars = word.split("");
+        chars.forEach(function (char, charIndex, charArray) {
+          string += `<span class="char" style="--index: ${++counter};">${char}</span>`;
+
+          // if we're on the last character of the last word, reset the counter
+          if (
+            wordIndex === wordArray.length - 1 &&
+            charIndex === charArray.length - 1
+          ) {
+            counter = 0;
+          }
+        });
+
+        // add a space between each word unless it's the last one
+        if (wordIndex !== wordArray.length - 1) {
+          string += "<span>&nbsp;</span>";
+        }
+      });
+      string += "</span>"; //end front
+
+      string += '<span class="back">';
+      words.forEach(function (word, wordIndex, wordArray) {
+        const chars = word.split("");
+        chars.forEach(function (char) {
+          string += `<span class="char" style="--index: ${++counter};">${char}</span>`;
+        });
+        if (wordIndex !== wordArray.length - 1) {
+          string += "<span>&nbsp;</span>";
+        }
+      });
+
+      string += "</span>"; // end back
+      string += "</span>"; // end inner
+      target.innerHTML = string;
+    }
+  }
+
+  function animateOnScroll() {
+    const targets = document.querySelectorAll('[data-split-type="scroll"]');
+    const isAnimatedClass = "is-animated";
+    const threshold = 0.5;
+
+    function callback(entries, observer) {
+      entries.forEach((entry) => {
+        const elem = entry.target;
+        if (entry.intersectionRatio >= threshold) {
+          elem.classList.add(isAnimatedClass);
+        } else {
+          elem.classList.remove(isAnimatedClass);
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(callback, { threshold });
+    for (const target of targets) {
+      observer.observe(target);
+    }
+  }
+</script>
+</body>
+</html>
