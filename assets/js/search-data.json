@@ -115,9 +115,20 @@
   
 
   
+      ,"page6": {
+          "title": "Discover Albums",
+          "content": "&lt;!DOCTYPE html&gt; . Disover Albums! Made By Tanisha Patil . . &#63; ♫⋆｡♪ 𝔻𝕚𝕤𝕔𝕠𝕧𝕖𝕣 𝔸𝕝𝕓𝕦𝕞𝕤 ₊˚♬ ﾟ. . Artist Name: Search Sort Alphabetically .",
+          "url": "https://haeryny.github.io/SHANT/discover-album/",
+          "relUrl": "/discover-album/",
+          "date": ""
+      }
+      
+  
 
   
-      ,"page7": {
+
+  
+      ,"page8": {
           "title": "SHANT Music Website",
           "content": ". Login Here &times; Username Password Email Login Remember me Cancel Forgot password? .",
           "url": "https://haeryny.github.io/SHANT/_pages/home.html",
@@ -128,7 +139,7 @@
   
 
   
-      ,"page8": {
+      ,"page9": {
           "title": "",
           "content": "Blogs .",
           "url": "https://haeryny.github.io/SHANT/",
@@ -157,7 +168,7 @@
   
 
   
-      ,"page15": {
+      ,"page16": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://haeryny.github.io/SHANT/robots.txt",
