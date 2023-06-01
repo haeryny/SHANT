@@ -12,7 +12,7 @@ permalink: /artist-profile/
 }
 
 body {
-  background-color: #82c5ff;
+  background-color: #332d4d;
 }
 
 .row {
